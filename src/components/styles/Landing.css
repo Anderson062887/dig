@@ -1,0 +1,11 @@
+/* #c42d2ddd; */
+.landing-box{
+    background-color:rgba(238, 238, 238, 0.392);
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../img/image1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
