@@ -17,7 +17,7 @@ export class Motion extends Component{
     render(){
        return(
            <div className={this.state.cls}>
-               <p>styles component</p>
+              
                {this.props.children}
            </div>
        )

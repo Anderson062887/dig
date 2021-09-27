@@ -1,8 +1,9 @@
-
+// import {Motion}
 import React,{Component} from "react";
 import{Link,Redirect} from "react-router-dom";
 import {Consumer} from "../Data";
 import "./styles/profile.css";
+import {Motion} from "./Motion"
 // import Loader from "./Loader"
 
 class Profile extends Component{
@@ -22,8 +23,8 @@ class Profile extends Component{
 
 
                            return(
-                             <div className="wrap">
-                             <div className="inner-wrap profile-wrap">
+                             <div className="wrap ">
+                             <div className="inner-wrap profile-wrap fadein">
                                  <div className="profile-wrap">
                                      <nav>
                                          <Link className="move-btn"  to="/profile/create">🛠</Link>

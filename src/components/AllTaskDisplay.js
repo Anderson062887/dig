@@ -11,6 +11,7 @@ import {Motion} from "./Motion"
                     <Consumer>
                     
                     {({tasks})=>{
+                        console.log(tasks)
               
                         
                             return(
