@@ -85,13 +85,15 @@ class Login extends Component{
 
     render(){
         const {errorVal,errortype}  = this.state.error;
+        const {from} = this.props.location.state || {from:{pathname:"/"} };
+       
                     return(
                             <Consumer>
-                             {({setUser,user})=>{
+                             {({setUser,user,isAuth})=>{
 
                                  this.setUser = setUser;
-                                 if(user){
-                                    return <Redirect to="/profile" />;
+                                 if(isAuth){
+                                    return <Redirect to={from} />;
                                    }
                                  return(
                                     <div className="wrap align-center ">
