@@ -38,12 +38,13 @@ constructor(props){
                 
                 <Consumer>
                    {({user})=>{
-
+                      
                        return(
+                        
                            <>
-                      {user === true?<div className="user-avatar-box"><Link to="/profile">{user.image?<img alt="" src={user.image}/>:<IoMdPerson className="user-avatar-box" />}</Link></div>:null}  
+                      {user?<div className="user-avatar-box"><Link to="/profile">{user.image?<img alt="user image" src={user.image}/>:<IoMdPerson className="user-avatar-box" />}</Link></div>:null}  
                         <ul>
-                        <AuthBtn />
+                      
                           {!user?
                               <>
                          <li> <NavLink   to="/login">Log In </NavLink></li>
@@ -55,7 +56,7 @@ constructor(props){
                              
                               </>
                           }
-
+                             <AuthBtn />
                           </ul>
                       </> )
                    }

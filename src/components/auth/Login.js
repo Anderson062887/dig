@@ -40,13 +40,21 @@ class Login extends Component{
     }
 
    async  getDataFromDb(email,password){
+                  try {
        //get token from db them get user profile  using the token
-            const newtoken = await signin({email,password}); 
-            const userData = await getMyProfile(newtoken);
-            //set app global state, setting user and token then set localstorage and redirect
-                this.setUser(userData,newtoken)
-                localStorage.setItem("user",JSON.stringify(newtoken));
-                 this.props.history.push("/profile")
+                    const user = await signin({email,password}); 
+                          if(user.auth){
+                        const userData = await getMyProfile(user);
+                        //set app global state, setting user and token then set localstorage and redirect
+                            this.setUser(userData,user)
+                            localStorage.setItem("user",JSON.stringify(user));
+                            this.props.history.push("/profile")
+                         }
+                
+                } catch (error) {
+                    console.log("error")
+                //    console.log(error)
+                }
 
     }
 

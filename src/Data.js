@@ -8,6 +8,7 @@ export class Dataprovider extends React.Component{
             user:null,
             tasks:null,
             token:null,
+            isAuth:false,
         
         }
         this.setUser = this.setUser.bind(this);
@@ -16,21 +17,31 @@ export class Dataprovider extends React.Component{
     }         //it was task not token
     setUser(user,token){
         this.setState((prev)=>{
-            return{user,token}
+            return{
+                user,
+                token,
+                isAuth:!prev.isAuth
+            }
         })
     }
 
    async checkUser(token){
-       console.log(token)
+
     const user = await getMyProfile(token);
-    
+ 
             if(user){
                 //const tasks = await allTask(token)
                 // this.setState({user,tasks})
-                this.setState({user,token})
+                this.setState((prevState)=>{
+                    return{
+                        user,
+                        token,
+                        isAuth:true
+                    }
+                })
             }else{
                 window.localStorage.removeItem("user");
-                this.setState({user:null,token:null})
+                this.setState(prev =>({user:null,token:null,isAuth:false}))
             }
             
     
@@ -49,8 +60,7 @@ export class Dataprovider extends React.Component{
 
     componentDidMount(){
         //get user token from local storage
-   
-        
+      console.log("go check user")
          const userHasToken = JSON.parse(localStorage.getItem("user"));
             if(userHasToken){
                this.checkUser(userHasToken)
@@ -65,12 +75,13 @@ console.log("app was mounted")
                 {user:this.state.user,
                     tasks:this.state.tasks,
                     checkUser:this.checkUser,
-                    setUser:this.setUser,}}>
+                    setUser:this.setUser,
+                    isAuth:this.state.isAuth}}>
                     
                 {this.props.children}
             </dataContext.Provider>
         )
     }
 }
-
-export const Consumer = dataContext.Consumer;
+const Consumer = dataContext.Consumer;
+export {Consumer};

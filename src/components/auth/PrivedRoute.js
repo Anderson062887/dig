@@ -7,7 +7,7 @@ import {Consumer} from "../../Data";
 
 
  export const PriveRoute = ({component:Component,redirectPath,...rest})=>{
-    const tokenInLocalStorage = JSON.parse(localStorage.getItem("user"));
+    // const tokenInLocalStorage = JSON.parse(localStorage.getItem("user"));
 
     return(
        <Consumer>
