@@ -11,7 +11,7 @@ import {Motion} from "./Motion"
                     <Consumer>
                     
                     {({tasks})=>{
-                        console.log(tasks)
+
               
                         
                             return(
@@ -20,7 +20,7 @@ import {Motion} from "./Motion"
                                 <Motion incls="fadein">
                                 <button className="move-btn" onClick={()=>history.goBack()}>👈🏻  </button>
                                  {tasks?<Filter list={tasks}/>:<Loader />} 
-
+                                 
                                     {/* <div>
                                         <button className="move-btn" onClick={()=>history.goBack()}>👈🏻  </button>
                                         <h2>ALL TASK</h2>
@@ -30,7 +30,7 @@ import {Motion} from "./Motion"
                                         <Link className="move-btn" to={`/task/${t._id}`}> 📤 </Link>
                                             </div>  )}
                                     </div> */}
-                                    </Motion>
+                                </Motion>
                 
                                 </div>
                 

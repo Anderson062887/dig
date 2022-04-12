@@ -6,16 +6,18 @@ import {Consumer} from "../../Data";
 
 
 
+
  export const PriveRoute = ({component:Component,redirectPath,...rest})=>{
     // const tokenInLocalStorage = JSON.parse(localStorage.getItem("user"));
-
+    //    window.sessionStorage.setItem("init",new Date().toLocaleTimeString())
     return(
        <Consumer>
-          {({user,checkUser,isAuth})=>{ 
+          {({user,isAuth})=>{ 
                 return(
+                   
                         <Route exact {...rest} render={(props)=>{
                             if(isAuth){
-                                return <Component {...props} />
+                                return <Component {...props} />;
                             }else{
                                 return <Redirect to={{pathname:"/login",state:{from:props.location}}}/>
                                 //  return <Redirect to={tokenInLocalStorage === null?rest.path:redirectPath}/>

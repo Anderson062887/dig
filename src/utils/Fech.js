@@ -1,4 +1,4 @@
-// import axios from "axios";
+ import axios from "axios";
 const url = `http://localhost:3030/api/`;
 
 // const load = JSON.stringify({email:"aaaa@mail.com",password:"andy"})
@@ -90,4 +90,26 @@ const getMyProfile = async({token})=>{
     .then(d => d.json())
     .catch(e => console.log(e))
     }
-    export {signin,getMyProfile,allTask,CreateUser}
+//working on sending the data to server
+    const addTasks = async(task)=>{
+    console.log(task)
+
+    const {token}=  JSON.parse(localStorage.getItem("user"));
+
+        const res = await fetch(`${url}tasks/create`,{
+    
+            method:"POST",
+            credentials: "omit",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-auth-token':`${token}`,
+                       
+              },
+              body:JSON.stringify(task)
+            }
+            
+           
+            );
+        console.log(res)
+    }
+    export {signin,getMyProfile,allTask,CreateUser,addTasks}

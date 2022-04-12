@@ -3,6 +3,7 @@ import {Consumer} from "../Data";
 import {Motion} from "../components/Motion";
 import "../components/styles/tasks.css";
 
+
 import {Redirect} from "react-router-dom";
 
 
@@ -28,7 +29,9 @@ export const Task = ({match,history})=>{
                     return(
                         
                         <div className="cart-wrap">
-                           <Motion incls="fadein" outcls="fadeout">
+                        
+                                
+                           <Motion incls="fadein" outcls="fadeout" key={history.location.key}>
                             <button  className="move-btn" onClick={()=>history.goBack()}>👈🏻 </button>
                            <div className="task-images-wrap">
                                   {info.images.map((url,i)=> <div className={`image-cart item-${i}`} key={i} style={{backgroundImage:`url(${url})`}}> </div>)}
@@ -39,6 +42,7 @@ export const Task = ({match,history})=>{
                         <p>created by:{info.userId.name}</p>
                         {info.date?<p>{info.date}</p>:null}
                         </Motion>
+                       
                         </div>
                         
                     )

@@ -1,6 +1,7 @@
-import Nav from "./components/Nav";
+
 import './App.css';
 import {BrowserRouter as Router,Route,Switch,Redirect} from "react-router-dom";
+import Nav from "./components/Nav";
 import {Landing} from "./components/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
@@ -10,6 +11,7 @@ import {Task} from "./components/Task";
 import Logout from "./components/auth/Logout";
 import {PriveRoute } from "./components/auth/PrivedRoute";
 import CreateForm from "./components/CreateTaks";
+
 
 
 function App(props) {
@@ -27,7 +29,7 @@ function App(props) {
                <Route exact path="/" component={Landing} />
                <Route        path="/login" component={Login} />
                <Route        path="/register" component={Register} />
-               <Route        path="/logout" render={()=> <Logout> <Redirect to="/login"/> </Logout>} />
+               {/* <Route        path="/logout" render={()=> <Logout> <Redirect to="/login"/> </Logout>} /> */}
                <PriveRoute exact path="/profile" redirectPath="/login" component={Profile}/>
                <PriveRoute   path="/profile/create" redirectPath="/login" component={CreateForm}/>
                <PriveRoute path="/task/all" redirectPath="/login" component={AllTaskDisplay} />

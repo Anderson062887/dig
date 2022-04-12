@@ -7,6 +7,7 @@ export class Motion extends Component{
             incls:props.incls,
             outcls:props.outcls,
             cls:props.incls,
+
         }
     }
 
@@ -15,6 +16,7 @@ export class Motion extends Component{
 
     }
     render(){
+       
        return(
            <div className={this.state.cls}>
               
