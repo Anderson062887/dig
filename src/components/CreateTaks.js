@@ -72,7 +72,7 @@ import {addTasks} from "../utils/Fech";
             images} = this.state;
            
             addTasks({title,description,images})
-            this.setState((prevState)=>{
+            this.setState(()=>{
                 return{
                     title:"",
                     description:"",

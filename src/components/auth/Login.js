@@ -98,7 +98,7 @@ class Login extends Component{
        
                     return(
                             <Consumer>
-                             {({setUser,user,isAuth})=>{
+                             {({setUser,isAuth})=>{
 
                                  this.setUser = setUser;
                                  if(isAuth){

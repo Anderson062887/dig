@@ -12,7 +12,7 @@ import {Consumer} from "../../Data";
     //    window.sessionStorage.setItem("init",new Date().toLocaleTimeString())
     return(
        <Consumer>
-          {({user,isAuth})=>{ 
+          {({isAuth})=>{ 
                 return(
                    
                         <Route exact {...rest} render={(props)=>{
